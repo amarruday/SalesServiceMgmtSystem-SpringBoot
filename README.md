@@ -1,5 +1,5 @@
 
-# YashSales - Pre Sales and Post Sales (Service) Management System
+# Pre Sales and Post Sales (Service) Management System
 > [!Note]
 > As part of my final year MCA project, I developed an end-to-end application titled “Sales and Service Management System.” This system is designed to streamline the daily operations of sales professionals, offering features for managing work tasks, customer inquiries, site visits, and service tickets. It leverages a robust backend built with Spring Boot, Spring Data JPA, and Restful Web Services, paired with a MySQL database for data persistence. The frontend is crafted using Angular, providing a responsive and intuitive user interface. This project not only showcases my technical skills in full-stack development but also my ability to address real-world business challenges through software solutions.
 # Overview
