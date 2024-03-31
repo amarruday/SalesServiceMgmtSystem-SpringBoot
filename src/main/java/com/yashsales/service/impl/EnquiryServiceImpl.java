@@ -309,9 +309,9 @@ public class EnquiryServiceImpl implements EnquiryService {
 					p = cb.and(p, cb.equal(root.join("addedBy").get("userId"), searchBean.getAddedBy()));
 				}
 
-				if (user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN)) {
+				if (user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN)) {
 					// all Enquiries should be visible
-				} else if (user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)) {
+				} else if (user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)) {
 					
 					// all Enquiries should be visible that to for same Product Catagory
 					UserProductCatagoryLink upcl = userProductCatagoryLinkRepo.findByUserId(user.getUserId());
@@ -325,7 +325,7 @@ public class EnquiryServiceImpl implements EnquiryService {
 						}
 
 					}
-				} else if (user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
+				} else if (user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
 					p = cb.and(p, cb.equal(root.join("assignedTo").get("userId"), user.getUserId()));
 				}
 				
@@ -354,13 +354,13 @@ public class EnquiryServiceImpl implements EnquiryService {
 
 		if (user != null && user.getUserId() > 0) {
 			List<User> assignedToList = null;
-			if (user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN)) {
+			if (user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN)) {
 				Department department = null;
 				department = deptRepo.findByDepartmentName(ApplicationConstants.DepartmentConstants.SALES_DEPARMENT);
 				assignedToList = userRepo.findByDepartment(department);
 				responseMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_SUCCESS);
 				responseMap.put("AssignToList", assignedToList);
-			} else if (user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)) {
+			} else if (user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)) {
 				assignedToList = userRepo.findByManager(user);
 				responseMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_SUCCESS);
 				responseMap.put("AssignToList", assignedToList);

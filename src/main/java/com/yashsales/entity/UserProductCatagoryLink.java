@@ -14,7 +14,15 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "user_product_catagory_link")
 public class UserProductCatagoryLink {
@@ -49,69 +57,4 @@ public class UserProductCatagoryLink {
 	
 	//@Column(name="UPDATED_BY")
 	private String updatedBy;
-
-	public Long getUserProductCatagoryLinkId() {
-		return userProductCatagoryLinkId;
-	}
-
-	public void setUserProductCatagoryLinkId(Long userProductCatagoryLinkId) {
-		this.userProductCatagoryLinkId = userProductCatagoryLinkId;
-	}
-
-	public ProductCatagory getProductCatagory() {
-		return productCatagory;
-	}
-
-	public void setProductCatagory(ProductCatagory productCatagory) {
-		this.productCatagory = productCatagory;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
-	public Timestamp getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Timestamp createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public Timestamp getUpdateDate() {
-		return updateDate;
-	}
-
-	public void setUpdateDate(Timestamp updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public String getUpdatedBy() {
-		return updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-	
 }

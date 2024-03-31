@@ -37,7 +37,7 @@ public class DashboardServiceImpl implements DashboardService {
 		User currentUser = userService.getCurrentLoggedInUser();
 		if(currentUser != null && currentUser.getUserId() > 0) {
 			
-			if(currentUser.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN)) {
+			if(currentUser.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN)) {
 				
 				//Ticket Statistics - All count status for today
 				List<Ticket> allTickets = null;

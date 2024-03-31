@@ -273,7 +273,7 @@ public class CommonServiceImpl implements CommonService {
 
 		roles = roleRepo.findAll();
 		if (roles != null && roles.size() > 0) {
-			roles.removeIf(role -> role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN));			
+			roles.removeIf(role -> role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN));			
 			responseMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_SUCCESS);
 			responseMap.put("Roles", roles);
 		}
@@ -289,27 +289,27 @@ public class CommonServiceImpl implements CommonService {
 			role = roleRepo.findById(roleId).get();
 			if (role.getRoleId() > 0 && role != null) {
 				returnMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_SUCCESS);
-				if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)
-						|| role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)) {
+				if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)
+						|| role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)) {
 					List<ProductCatagory> productCatagoryList = null;
 					productCatagoryList = prodCatagoryRepo.findByProductCatagoryStatus();
 					returnMap.put("ProductCatagoryList", productCatagoryList);
 				}
 
-				if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)
-						|| role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
+				if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)
+						|| role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
 					List<UserProductCatagoryLink> userProductCatagoryLinkList = null;
 					List<RoleWiseManagersListBean> roleWiseManagersBeanList = new ArrayList<RoleWiseManagersListBean>();
 
 					userProductCatagoryLinkList = userProductCatagoryLinkRepo.findAll();
-					if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
+					if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
 						userProductCatagoryLinkList.forEach(userProd -> {
-							if (userProd.getUser().getRole().getrolename()
+							if (userProd.getUser().getRole().getRolename()
 									.equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)) {
 								RoleWiseManagersListBean roleWiseManagersBean = new RoleWiseManagersListBean();
 								roleWiseManagersBean.setManagerId(userProd.getUser().getUserId());
 								String manager_ProductCatagory = userProd.getUser().getFullName() + " ["
-										+ userProd.getUser().getRole().getrolename() + " of "
+										+ userProd.getUser().getRole().getRolename() + " of "
 										+ userProd.getProductCatagory().getProductCatagoryName() + "]";
 								roleWiseManagersBean.setManager_productCatagory(manager_ProductCatagory);
 								roleWiseManagersBeanList.add(roleWiseManagersBean);
@@ -317,9 +317,9 @@ public class CommonServiceImpl implements CommonService {
 						});
 					}
 
-					if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
+					if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
 						userProductCatagoryLinkList.forEach(userProd -> {
-							if (userProd.getUser().getRole().getrolename()
+							if (userProd.getUser().getRole().getRolename()
 									.equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)) {
 								RoleWiseManagersListBean roleWiseManagersBean = new RoleWiseManagersListBean();
 								roleWiseManagersBean.setManagerId(userProd.getUser().getUserId());

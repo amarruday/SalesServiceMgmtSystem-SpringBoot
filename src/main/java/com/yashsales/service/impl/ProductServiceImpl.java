@@ -353,13 +353,13 @@ public class ProductServiceImpl implements ProductService {
 			List<ProductType> productTypeList = null;
 			UserProductCatagoryLink upcl = null;
 
-			if (user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN)) {
+			if (user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN)) {
 				// return all product types
 				productTypeList = productTypeRepo.findAll();
 				returnMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_SUCCESS);
 				returnMap.put("message", "");
 				returnMap.put("ProductTypeList", productTypeList);
-			} else if (user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER) || user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
+			} else if (user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER) || user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
 				User manager = user.getManager();
 				if (manager.getUserId() > 0) {
 					upcl = userProductCatagoryLinkRepo.findByUserId(manager.getUserId());
@@ -373,7 +373,7 @@ public class ProductServiceImpl implements ProductService {
 						}
 					}
 				}
-			} else if (user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER) || user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)) {
+			} else if (user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER) || user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)) {
 				// if roles are Managers
 				upcl = userProductCatagoryLinkRepo.findByUserId(user.getUserId());
 				if (upcl.getUserProductCatagoryLinkId() > 0) {

@@ -91,11 +91,8 @@ public class TicketServiceImpl implements TicketService {
 		Customer customer = null;
 		TicketType ticketType = null;
 		Product product = null;
-		User addedBy = null;
 		User assignedTo = null;
-		User assignedBy = null;
-		CustomerProductLink customersProduct = null;
-
+		
 		User currentUser = userService.getCurrentLoggedInUser();
 		ticket = new Ticket();
 		if (addTicketBean.getCustomerId() > 0) {
@@ -271,9 +268,9 @@ public class TicketServiceImpl implements TicketService {
 					p = cb.and(p, cb.equal(root.join("addedBy").get("userId"), searchBean.getAddedBy()));
 				}
 
-				if (user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN)) {
+				if (user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_ADMIN)) {
 					// all tickets should be visible
-				} else if (user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)) {
+				} else if (user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)) {
 					// all tickets should be visible that to for same Product Catagory
 					UserProductCatagoryLink upcl = userProductCatagoryLinkRepo.findByUserId(user.getUserId());
 					if (upcl.getUserProductCatagoryLinkId() > 0) {
@@ -284,7 +281,7 @@ public class TicketServiceImpl implements TicketService {
 						}
 
 					}
-				} else if (user.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
+				} else if (user.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
 					p = cb.and(p, cb.equal(root.join("assignedTo").get("userId"), user.getUserId()));
 				} 
 

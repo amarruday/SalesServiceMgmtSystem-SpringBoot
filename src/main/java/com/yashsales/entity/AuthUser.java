@@ -45,7 +45,7 @@ public class AuthUser implements UserDetails {
 		this.role = user.getRole();
 		this.joiningDate = user.getJoiningDate();
 		Set<Authority> authSet = new HashSet<>();
-		authSet.add(new Authority(user.getRole().getrolename()));
+		authSet.add(new Authority(user.getRole().getRolename()));
 		this.authorities= authSet;
 		this.profilePic = user.getProfilePic();
 		this.createdDate = user.getCreatedDate();

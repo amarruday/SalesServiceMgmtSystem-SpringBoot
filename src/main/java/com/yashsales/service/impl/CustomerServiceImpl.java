@@ -156,8 +156,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Map<String, Object> getAllCustomersListPaginated(CustomerPagination pagination) {
 		Map<String, Object> responseMap = new HashMap<String, Object>();
-		List<Customer> customerList = null;
-		Page customerPage = null;
+		Page<Customer> customerPage = null;
 		
 		responseMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_FAILURE);
 		responseMap.put("CustomerList", null);

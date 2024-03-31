@@ -1,6 +1,5 @@
 package com.yashsales.service.impl;
 
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -112,13 +111,13 @@ public class UserServiceImpl implements UserService {
 			if (role != null && role.getRoleId() > 0) {
 				localUser.setRole(role);
 				Department department = null;
-				if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)
-						|| role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
+				if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)
+						|| role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
 					department = deptRepo
 							.findByDepartmentName(ApplicationConstants.DepartmentConstants.SALES_DEPARMENT);
 				}
-				if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)
-						|| role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
+				if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)
+						|| role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
 					department = deptRepo
 							.findByDepartmentName(ApplicationConstants.DepartmentConstants.SERVICE_DEPARTMENT);
 				}
@@ -133,7 +132,7 @@ public class UserServiceImpl implements UserService {
 				}
 			}
 
-			if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER) || role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)) {
+			if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER) || role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)) {
 				if (updateUserBean.getProductCatagoryId() > 0) {
 					// getProductCatagory
 					ProductCatagory productCatagory = null;
@@ -178,8 +177,8 @@ public class UserServiceImpl implements UserService {
 			userBean.setMobileNumber(localUser.getMobileNumber());
 			userBean.setProfilePic(localUser.getProfilePic());
 			Set<Authority> authSet = new HashSet<>();
-			authSet.add(new Authority(localUser.getRole().getrolename()));
-			userBean.setRoleName(localUser.getRole().getrolename());
+			authSet.add(new Authority(localUser.getRole().getRolename()));
+			userBean.setRoleName(localUser.getRole().getRolename());
 			userBean.setManager(localUser.getManager());
 			userBean.setDepartment(localUser.getDepartment());
 			userBean.setAuthorities(authSet);
@@ -226,13 +225,13 @@ public class UserServiceImpl implements UserService {
 				}
 
 				Department department = null;
-				if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)
-						|| role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
+				if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)
+						|| role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
 					department = deptRepo
 							.findByDepartmentName(ApplicationConstants.DepartmentConstants.SALES_DEPARMENT);
 				}
-				if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)
-						|| role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
+				if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)
+						|| role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
 					department = deptRepo
 							.findByDepartmentName(ApplicationConstants.DepartmentConstants.SERVICE_DEPARTMENT);
 				}
@@ -251,8 +250,8 @@ public class UserServiceImpl implements UserService {
 				localUser.setCreatedBy(ApplicationConstants.RoleConstants.ROLE_ADMIN);
 				localUser = userRepo.save(localUser);
 
-				if (localUser.getRole().getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)
-						|| localUser.getRole().getrolename()
+				if (localUser.getRole().getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)
+						|| localUser.getRole().getRolename()
 								.equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)) {
 
 					if (addUserBean.getProductCatagoryId() > 0) {
@@ -315,7 +314,7 @@ public class UserServiceImpl implements UserService {
 			UserBean userBean = new UserBean();
 			userBean.setUserId(usersList.get(i).getUserId());
 			userBean.setFullName(usersList.get(i).getFullName());
-			userBean.setRoleName(usersList.get(i).getRole().getrolename());
+			userBean.setRoleName(usersList.get(i).getRole().getRolename());
 			userBeanList.add(userBean);
 		}
 
@@ -370,20 +369,20 @@ public class UserServiceImpl implements UserService {
 
 			Role role = roleRepo.findById(localUser.getRole().getRoleId()).get();
 			if (localUser.getManager() != null && localUser.getManager().getUserId() > 0) {
-				if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)
-						|| role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
+				if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)
+						|| role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
 					List<UserProductCatagoryLink> userProductCatagoryLinkList = null;
 					List<RoleWiseManagersListBean> roleWiseManagersBeanList = new ArrayList<RoleWiseManagersListBean>();
 
 					userProductCatagoryLinkList = uProdCatRepo.findAll();
-					if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
+					if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_ENGINEER)) {
 						userProductCatagoryLinkList.forEach(userProd -> {
-							if (userProd.getUser().getRole().getrolename()
+							if (userProd.getUser().getRole().getRolename()
 									.equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)) {
 								RoleWiseManagersListBean roleWiseManagersBean = new RoleWiseManagersListBean();
 								roleWiseManagersBean.setManagerId(userProd.getUser().getUserId());
 								String manager_ProductCatagory = userProd.getUser().getFullName() + " ["
-										+ userProd.getUser().getRole().getrolename() + " of "
+										+ userProd.getUser().getRole().getRolename() + " of "
 										+ userProd.getProductCatagory().getProductCatagoryName() + "]";
 								roleWiseManagersBean.setManager_productCatagory(manager_ProductCatagory);
 								roleWiseManagersBeanList.add(roleWiseManagersBean);
@@ -391,9 +390,9 @@ public class UserServiceImpl implements UserService {
 						});
 					}
 
-					if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
+					if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_ENGINEER)) {
 						userProductCatagoryLinkList.forEach(userProd -> {
-							if (userProd.getUser().getRole().getrolename()
+							if (userProd.getUser().getRole().getRolename()
 									.equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)) {
 								RoleWiseManagersListBean roleWiseManagersBean = new RoleWiseManagersListBean();
 								roleWiseManagersBean.setManagerId(userProd.getUser().getUserId());
@@ -407,8 +406,8 @@ public class UserServiceImpl implements UserService {
 					returnMap.put("RoleWiseManagersList", roleWiseManagersBeanList);
 				}
 			} else {
-				if (role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)
-						|| role.getrolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)) {
+				if (role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SERVICE_MANAGER)
+						|| role.getRolename().equals(ApplicationConstants.RoleConstants.ROLE_SALES_MANAGER)) {
 					List<ProductCatagory> productCatagoryList = null;
 					productCatagoryList = prodCatagoryRepo.findByProductCatagoryStatus();
 
@@ -441,8 +440,8 @@ public class UserServiceImpl implements UserService {
 			userBean.setMobileNumber(localUser.getMobileNumber());
 			userBean.setProfilePic(localUser.getProfilePic());
 			//Set<Authority> authSet = new HashSet<>();
-			//authSet.add(new Authority(localUser.getRole().getrolename()));
-			userBean.setRoleName(localUser.getRole().getrolename());
+			//authSet.add(new Authority(localUser.getRole().getRolename()));
+			userBean.setRoleName(localUser.getRole().getRolename());
 			if(localUser.getManager() != null && localUser.getManager().getUserId() > 0) {
 				userBean.setManagerName(localUser.getManager().getFullName());
 			} else  {
@@ -478,7 +477,7 @@ public class UserServiceImpl implements UserService {
 			UserBean userBean = new UserBean();
 			userBean.setUserId(usersList.get(i).getUserId());
 			userBean.setFullName(usersList.get(i).getFullName());
-			userBean.setRoleName(usersList.get(i).getRole().getrolename());
+			userBean.setRoleName(usersList.get(i).getRole().getRolename());
 			userBeanList.add(userBean);
 		}
 

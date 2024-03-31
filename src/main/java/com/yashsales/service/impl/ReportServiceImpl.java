@@ -163,7 +163,7 @@ public class ReportServiceImpl implements ReportService {
 				.collect(Collectors.groupingBy(Ticket::getAddedBy, Collectors.toList()));
 		
 		for (Map.Entry<User, List<Ticket>> entry : employeeWiseTicketList.entrySet()) {
-			String empName = entry.getKey().getFullName() + " [" + entry.getKey().getRole().getrolename() + "]";
+			String empName = entry.getKey().getFullName() + " [" + entry.getKey().getRole().getRolename() + "]";
 			List<Ticket> ticketsList = entry.getValue();
 			reportList.put(empName, ticketsList);
 		}
@@ -344,7 +344,7 @@ public class ReportServiceImpl implements ReportService {
 		employeeWiseEnquiryList = enquiryList.stream()
 				.collect(Collectors.groupingBy(Enquiry::getAddedBy, Collectors.toList()));
 		for (Map.Entry<User, List<Enquiry>> entry : employeeWiseEnquiryList.entrySet()) {
-			String empName = entry.getKey().getFullName() + " [" + entry.getKey().getRole().getrolename() + "]";
+			String empName = entry.getKey().getFullName() + " [" + entry.getKey().getRole().getRolename() + "]";
 			List<Enquiry> enqList = entry.getValue();
 			reportList.put(empName, enqList);
 		}

@@ -8,11 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
-import com.yashsales.entity.Customer;
-import com.yashsales.entity.CustomerProductLink;
 import com.yashsales.entity.TicketType;
-import com.yashsales.repository.CustomerProudctLinkRepository;
-import com.yashsales.repository.CustomerRepository;
 import com.yashsales.repository.TicketTypeRepository;
 
 @Service
@@ -20,12 +16,7 @@ public class TicketTypeService {
 
 	@Autowired
 	private TicketTypeRepository ticketTypeRepo;
-	
-
-	
-	@Autowired
-	private CustomerRepository custRepo;
-	
+		
 	public Map<String, Object> getAllTicketTypes() {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		List<TicketType> ticketTypeList = null;

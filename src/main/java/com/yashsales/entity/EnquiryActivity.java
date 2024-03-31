@@ -9,7 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "enquiry_activities")
 public class EnquiryActivity  {
@@ -29,53 +37,4 @@ public class EnquiryActivity  {
 	private String status;
 	private Timestamp recordDate;
 	private String remark;
-
-	public Long getEnquiryActivityId() {
-		return enquiryActivityId;
-	}
-
-	public void setEnquiryActivityId(Long enquiryActivityId) {
-		this.enquiryActivityId = enquiryActivityId;
-	}
-
-	public Enquiry getEnquiry() {
-		return enquiry;
-	}
-
-	public void setEnquiry(Enquiry enquiry) {
-		this.enquiry = enquiry;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public Timestamp getRecordDate() {
-		return recordDate;
-	}
-
-	public void setRecordDate(Timestamp recordDate) {
-		this.recordDate = recordDate;
-	}
-
-	public String getRemark() {
-		return remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-
 }
