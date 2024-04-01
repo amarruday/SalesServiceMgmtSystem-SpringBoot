@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yashsales.outputbeans.CustomerOutputBean;
-import com.yashsales.outputbeans.CustomerPagination;
+import com.yashsales.dto.CustomerOutputBean;
+import com.yashsales.dto.CustomerPagination;
 import com.yashsales.service.CustomerService;
 
 import lombok.AllArgsConstructor;

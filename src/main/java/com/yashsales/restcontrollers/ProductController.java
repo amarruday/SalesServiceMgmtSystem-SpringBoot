@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yashsales.outputbeans.ProductBean;
-import com.yashsales.outputbeans.SearchProductPagniationOutputbean;
+import com.yashsales.dto.ProductBean;
+import com.yashsales.dto.SearchProductPagniationOutputbean;
 import com.yashsales.service.ProductService;
 
 import lombok.AllArgsConstructor;

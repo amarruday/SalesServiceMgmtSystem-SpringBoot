@@ -10,9 +10,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
+import com.yashsales.dto.CustomerOutputBean;
+import com.yashsales.dto.CustomerPagination;
 import com.yashsales.entity.Customer;
-import com.yashsales.outputbeans.CustomerOutputBean;
-import com.yashsales.outputbeans.CustomerPagination;
 import com.yashsales.repository.CustomerRepository;
 import com.yashsales.service.CustomerService;
 

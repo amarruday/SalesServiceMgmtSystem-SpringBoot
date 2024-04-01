@@ -16,15 +16,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
+import com.yashsales.dto.AddUserBean;
+import com.yashsales.dto.RoleWiseManagersListBean;
+import com.yashsales.dto.UserBean;
 import com.yashsales.entity.Authority;
 import com.yashsales.entity.Department;
 import com.yashsales.entity.ProductCatagory;
 import com.yashsales.entity.Role;
 import com.yashsales.entity.User;
 import com.yashsales.entity.UserProductCatagoryLink;
-import com.yashsales.outputbeans.AddUserBean;
-import com.yashsales.outputbeans.RoleWiseManagersListBean;
-import com.yashsales.outputbeans.UserBean;
 import com.yashsales.repository.DepartmentRepository;
 import com.yashsales.repository.ProductCatagoryRepository;
 import com.yashsales.repository.RoleRepository;

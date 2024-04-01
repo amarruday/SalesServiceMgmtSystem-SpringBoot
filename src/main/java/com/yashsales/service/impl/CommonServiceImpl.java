@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
+import com.yashsales.dto.RoleWiseManagersListBean;
 import com.yashsales.entity.Brand;
 import com.yashsales.entity.CommonReply;
 import com.yashsales.entity.Department;
@@ -18,7 +19,6 @@ import com.yashsales.entity.EnquiryType;
 import com.yashsales.entity.ProductCatagory;
 import com.yashsales.entity.Role;
 import com.yashsales.entity.UserProductCatagoryLink;
-import com.yashsales.outputbeans.RoleWiseManagersListBean;
 import com.yashsales.repository.BrandsRepository;
 import com.yashsales.repository.CommonReplyRepository;
 import com.yashsales.repository.DepartmentRepository;

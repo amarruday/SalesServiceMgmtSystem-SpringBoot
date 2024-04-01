@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yashsales.outputbeans.SearchVisitBean;
-import com.yashsales.outputbeans.VisitBean;
+import com.yashsales.dto.SearchVisitBean;
+import com.yashsales.dto.VisitBean;
 import com.yashsales.service.VisitService;
 
 import lombok.AllArgsConstructor;

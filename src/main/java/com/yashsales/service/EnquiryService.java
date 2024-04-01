@@ -4,12 +4,12 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.yashsales.outputbeans.AddEnquiryBean;
-import com.yashsales.outputbeans.EnquirySearchBean;
-import com.yashsales.outputbeans.EnquiryBeans.AssignEnquiryBean;
-import com.yashsales.outputbeans.EnquiryBeans.CancelEnquiryBean;
-import com.yashsales.outputbeans.EnquiryBeans.ConvertToProspectBean;
-import com.yashsales.outputbeans.EnquiryBeans.WonLostEnquiryBean;
+import com.yashsales.dto.AddEnquiryBean;
+import com.yashsales.dto.EnquirySearchBean;
+import com.yashsales.dto.Enquiry.AssignEnquiryBean;
+import com.yashsales.dto.Enquiry.CancelEnquiryBean;
+import com.yashsales.dto.Enquiry.ConvertToProspectBean;
+import com.yashsales.dto.Enquiry.WonLostEnquiryBean;
 
 @Service
 public interface EnquiryService {

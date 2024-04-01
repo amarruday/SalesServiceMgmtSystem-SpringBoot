@@ -3,7 +3,6 @@ package com.yashsales.restcontrollers;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yashsales.constants.ApplicationConstants;
+import com.yashsales.dto.AddUserBean;
+import com.yashsales.dto.BaseResponse;
+import com.yashsales.dto.UserBean;
 import com.yashsales.entity.User;
-import com.yashsales.outputbeans.AddUserBean;
-import com.yashsales.outputbeans.BaseResponse;
-import com.yashsales.outputbeans.UserBean;
 import com.yashsales.service.UserService;
 
 import lombok.AllArgsConstructor;

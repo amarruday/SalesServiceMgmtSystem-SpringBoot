@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yashsales.outputbeans.AddTicketBean;
-import com.yashsales.outputbeans.TicketSearchBean;
+import com.yashsales.dto.AddTicketBean;
+import com.yashsales.dto.TicketSearchBean;
 import com.yashsales.service.TicketService;
 
 import lombok.AllArgsConstructor;

@@ -4,8 +4,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.yashsales.outputbeans.SearchVisitBean;
-import com.yashsales.outputbeans.VisitBean;
+import com.yashsales.dto.SearchVisitBean;
+import com.yashsales.dto.VisitBean;
 
 @Service
 public interface VisitService {

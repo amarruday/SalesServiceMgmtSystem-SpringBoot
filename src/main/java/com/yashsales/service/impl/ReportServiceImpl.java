@@ -19,13 +19,13 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
+import com.yashsales.dto.DatewiseSearchBean;
 import com.yashsales.entity.Enquiry;
 import com.yashsales.entity.EnquirySource;
 import com.yashsales.entity.Product;
 import com.yashsales.entity.Ticket;
 import com.yashsales.entity.TicketType;
 import com.yashsales.entity.User;
-import com.yashsales.outputbeans.DatewiseSearchBean;
 import com.yashsales.repository.EnquiryRepository;
 import com.yashsales.repository.TicketRepository;
 import com.yashsales.service.ReportService;

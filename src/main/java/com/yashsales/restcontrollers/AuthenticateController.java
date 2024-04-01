@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yashsales.constants.ApplicationConstants;
 import com.yashsales.constants.JwtUtils;
-import com.yashsales.outputbeans.JwtRequest;
-import com.yashsales.outputbeans.JwtResponse;
+import com.yashsales.dto.JwtRequest;
+import com.yashsales.dto.JwtResponse;
 import com.yashsales.service.impl.UserDetailsServiceImpl;
 
 @RestController

@@ -2,9 +2,9 @@ package com.yashsales.service;
 
 import java.util.Map;
 
+import com.yashsales.dto.AddUserBean;
+import com.yashsales.dto.UserBean;
 import com.yashsales.entity.User;
-import com.yashsales.outputbeans.AddUserBean;
-import com.yashsales.outputbeans.UserBean;
 
 public interface UserService {
 	public UserBean createUser(AddUserBean addUserBean) throws Exception;

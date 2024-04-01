@@ -17,15 +17,15 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
+import com.yashsales.dto.ProductBean;
+import com.yashsales.dto.ProductTypeOutputBean;
+import com.yashsales.dto.SearchProductPagniationOutputbean;
 import com.yashsales.entity.Brand;
 import com.yashsales.entity.Product;
 import com.yashsales.entity.ProductCatagory;
 import com.yashsales.entity.ProductType;
 import com.yashsales.entity.User;
 import com.yashsales.entity.UserProductCatagoryLink;
-import com.yashsales.outputbeans.ProductBean;
-import com.yashsales.outputbeans.ProductTypeOutputBean;
-import com.yashsales.outputbeans.SearchProductPagniationOutputbean;
 import com.yashsales.repository.BrandsRepository;
 import com.yashsales.repository.ProductCatagoryRepository;
 import com.yashsales.repository.ProductRepository;

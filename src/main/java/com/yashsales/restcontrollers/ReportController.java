@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yashsales.outputbeans.DatewiseSearchBean;
+import com.yashsales.dto.DatewiseSearchBean;
 import com.yashsales.service.ReportService;
 
 import lombok.AllArgsConstructor;

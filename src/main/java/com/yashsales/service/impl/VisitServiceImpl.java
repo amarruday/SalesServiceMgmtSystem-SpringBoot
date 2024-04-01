@@ -19,12 +19,12 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
+import com.yashsales.dto.SearchVisitBean;
+import com.yashsales.dto.VisitBean;
 import com.yashsales.entity.ActionType;
 import com.yashsales.entity.Customer;
 import com.yashsales.entity.User;
 import com.yashsales.entity.Visit;
-import com.yashsales.outputbeans.SearchVisitBean;
-import com.yashsales.outputbeans.VisitBean;
 import com.yashsales.repository.ActionTypeRepository;
 import com.yashsales.repository.CustomerRepository;
 import com.yashsales.repository.VisitsRepository;

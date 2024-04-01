@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.yashsales.outputbeans.DatewiseSearchBean;
+import com.yashsales.dto.DatewiseSearchBean;
 @Service
 public interface ReportService {
 	public abstract Map<String, Object> getTicketTypeWiseTicketReport(DatewiseSearchBean datewiseSearchBean);

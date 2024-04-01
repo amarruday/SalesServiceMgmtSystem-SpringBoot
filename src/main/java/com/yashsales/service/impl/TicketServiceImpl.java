@@ -22,6 +22,9 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
+import com.yashsales.dto.AddTicketBean;
+import com.yashsales.dto.TicketResponseBean;
+import com.yashsales.dto.TicketSearchBean;
 import com.yashsales.entity.Customer;
 import com.yashsales.entity.CustomerProductLink;
 import com.yashsales.entity.Product;
@@ -31,8 +34,6 @@ import com.yashsales.entity.TicketActivity;
 import com.yashsales.entity.TicketType;
 import com.yashsales.entity.User;
 import com.yashsales.entity.UserProductCatagoryLink;
-import com.yashsales.outputbeans.AddTicketBean;
-import com.yashsales.outputbeans.TicketSearchBean;
 import com.yashsales.repository.CustomerProudctLinkRepository;
 import com.yashsales.repository.CustomerRepository;
 import com.yashsales.repository.ProductRepository;
@@ -286,10 +287,29 @@ public class TicketServiceImpl implements TicketService {
 		responseMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_FAILURE);
 
 		Ticket ticket = ticketRepo.findById(ticketId).orElse(null);
-
-		if (ticket != null && ticket.getTicketId() > 0) {
+		TicketResponseBean ticketResponseBean = TicketResponseBean.builder()
+				.ticketId(ticket.getTicketId())
+				.ticketType(ticket.getTicketType())
+				.customer(ticket.getCustomer())
+				.product(ticket.getProduct())
+				.priority(ticket.getPriority())
+				.lastServiceDate(ticket.getLastServiceDate())
+				.warrantyDate(ticket.getWarrantyDate())
+				.isInWarranty(ticket.isInWarranty())
+				.machineSerialNumber(ticket.getMachineSerialNumber())
+				.shortDescription(ticket.getShortDescription())
+				.longDescription(ticket.getLongDescription())
+				.addedDate(ticket.getAddedDate())
+				.recentActivityDate(ticket.getRecentActivityDate())
+				.status(ticket.getStatus())
+				.addedBy(ticket.getAddedBy())
+				.assignedBy(ticket.getAssignedBy())
+				.assignedTo(ticket.getAssignedTo())
+				.build();
+		
+		if (ticketResponseBean != null && ticketResponseBean.getTicketId() > 0) {
 			responseMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_SUCCESS);
-			responseMap.put("Ticket", ticket);
+			responseMap.put("Ticket", ticketResponseBean);
 			responseMap.put("message", "");
 			
 			List<TicketActivity> ticketActivities = null;
