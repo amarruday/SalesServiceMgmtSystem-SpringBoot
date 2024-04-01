@@ -7,7 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,15 +18,14 @@ import com.yashsales.constants.JwtUtils;
 import com.yashsales.service.impl.UserDetailsServiceImpl;
 
 import io.jsonwebtoken.ExpiredJwtException;
+import lombok.AllArgsConstructor;
 
 @Component
+@AllArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-	@Autowired
-	private UserDetailsServiceImpl userDetailsService;
-
-	@Autowired
-	private JwtUtils jwtUtils;
+	private final UserDetailsServiceImpl userDetailsService;
+	private final JwtUtils jwtUtils;
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

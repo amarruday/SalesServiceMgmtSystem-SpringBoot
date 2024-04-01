@@ -10,7 +10,6 @@ import java.util.Set;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -33,29 +32,20 @@ import com.yashsales.repository.UserProductCatagoryLinkRepository;
 import com.yashsales.repository.UserRepository;
 import com.yashsales.service.UserService;
 
+import lombok.AllArgsConstructor;
 import net.bytebuddy.utility.RandomString;
 
+@AllArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserRepository userRepo;
-
-	@Autowired
-	private RoleRepository roleRepo;
-
-	@Autowired
-	private DepartmentRepository deptRepo;
-
-	@Autowired
-	private ProductCatagoryRepository prodCatagoryRepo;
-
-	@Autowired
-	private UserProductCatagoryLinkRepository uProdCatRepo;
-
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
-
+	private final UserRepository userRepo;
+	private final RoleRepository roleRepo;
+	private final DepartmentRepository deptRepo;
+	private final ProductCatagoryRepository prodCatagoryRepo;
+	private final UserProductCatagoryLinkRepository uProdCatRepo;
+	private final BCryptPasswordEncoder passwordEncoder;
+	
 	@Override
 	@Transactional
 	public UserBean createAdmin(UserBean userBean) throws Exception {

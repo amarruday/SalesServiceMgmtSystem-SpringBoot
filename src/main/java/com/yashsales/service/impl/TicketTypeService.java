@@ -4,18 +4,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
 import com.yashsales.entity.TicketType;
 import com.yashsales.repository.TicketTypeRepository;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class TicketTypeService {
 
-	@Autowired
-	private TicketTypeRepository ticketTypeRepo;
+	private final TicketTypeRepository ticketTypeRepo;
 		
 	public Map<String, Object> getAllTicketTypes() {
 		Map<String, Object> returnMap = new HashMap<String, Object>();

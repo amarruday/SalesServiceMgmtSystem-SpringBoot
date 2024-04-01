@@ -2,7 +2,6 @@ package com.yashsales.restcontrollers;
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,13 +17,15 @@ import com.yashsales.outputbeans.CustomerOutputBean;
 import com.yashsales.outputbeans.CustomerPagination;
 import com.yashsales.service.CustomerService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("api/customer")
 @CrossOrigin("*")
 public class CustomerController {
 	
-	@Autowired
-	private CustomerService custService;
+	private final CustomerService custService;
 	
 	@PostMapping("/")
 	public ResponseEntity<Map<String, Object>> addCustomer(@RequestBody CustomerOutputBean custBean) {

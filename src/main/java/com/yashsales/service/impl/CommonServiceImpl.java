@@ -29,11 +29,13 @@ import com.yashsales.repository.RoleRepository;
 import com.yashsales.repository.UserProductCatagoryLinkRepository;
 import com.yashsales.service.CommonService;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class CommonServiceImpl implements CommonService {
 
-	@Autowired
-	private RoleRepository roleRepo;
+	private final RoleRepository roleRepo;
 
 	@Autowired
 	private ProductCatagoryRepository prodCatagoryRepo;

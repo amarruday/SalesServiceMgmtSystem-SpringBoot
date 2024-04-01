@@ -15,8 +15,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
-import org.hibernate.internal.build.AllowSysOut;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -48,38 +46,22 @@ import com.yashsales.service.TicketService;
 import com.yashsales.service.UserService;
 import com.yashsales.utility.DateUtils;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class TicketServiceImpl implements TicketService {
 
-	@Autowired
-	private TicketRepository ticketRepo;
-
-	@Autowired
-	private UserService userService;
-
-	@Autowired
-	private UserProductCatagoryLinkRepository userProductCatagoryLinkRepo;
-
-	@Autowired
-	private ProductTypeRepository productTypeRepo;
-
-	@Autowired
-	private CustomerRepository custRepo;
-
-	@Autowired
-	private TicketTypeRepository ticketTypeRepo;
-
-	@Autowired
-	private ProductRepository productRepo;
-
-	@Autowired
-	private UserRepository userRepo;
-	
-	@Autowired
-	private TicketActivityRepository ticketActivityRepo;
-	
-	@Autowired
-	private CustomerProudctLinkRepository custProdLinkRepo;
+	private final TicketRepository ticketRepo;
+	private final UserService userService;
+	private final UserProductCatagoryLinkRepository userProductCatagoryLinkRepo;
+	private final ProductTypeRepository productTypeRepo;
+	private final CustomerRepository custRepo;
+	private final TicketTypeRepository ticketTypeRepo;
+	private final ProductRepository productRepo;
+	private final UserRepository userRepo;
+	private final TicketActivityRepository ticketActivityRepo;
+	private final CustomerProudctLinkRepository custProdLinkRepo;
 	
 	@Transactional
 	@Override

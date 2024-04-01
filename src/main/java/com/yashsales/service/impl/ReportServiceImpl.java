@@ -2,7 +2,6 @@ package com.yashsales.service.impl;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +15,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -32,14 +30,14 @@ import com.yashsales.repository.EnquiryRepository;
 import com.yashsales.repository.TicketRepository;
 import com.yashsales.service.ReportService;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class ReportServiceImpl implements ReportService {
 
-	@Autowired
-	private TicketRepository ticketRepo;
-
-	@Autowired
-	private EnquiryRepository enqRepo;
+	private final TicketRepository ticketRepo;
+	private final EnquiryRepository enqRepo;
 
 	@Override
 	public Map<String, Object> getTicketTypeWiseTicketReport(DatewiseSearchBean searchBean) {

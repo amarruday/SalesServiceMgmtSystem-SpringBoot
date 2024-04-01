@@ -15,13 +15,15 @@ import com.yashsales.outputbeans.AddTicketBean;
 import com.yashsales.outputbeans.TicketSearchBean;
 import com.yashsales.service.TicketService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
-@RequestMapping("/ticket")
+@RequestMapping("api/ticket")
 @CrossOrigin("*")
 public class TicketController {
 
-	@Autowired
-	private TicketService ticketService;
+	private final TicketService ticketService;
 
 	@PostMapping("/")
 	public Map<String, Object> addTicket(@RequestBody AddTicketBean addTicketBean) {
@@ -33,7 +35,7 @@ public class TicketController {
 		return ticketService.getPaginatedTickets(searchBean);
 	}
 
-	@GetMapping("/ticketdetails/{ticketId}")
+	@GetMapping("/{ticketId}")
 	public Map<String, Object> getTicketDetails(@PathVariable Long ticketId) {
 		return ticketService.getTicketDetails(ticketId);
 	}

@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
@@ -12,11 +11,13 @@ import com.yashsales.entity.ProductCatagory;
 import com.yashsales.repository.ProductCatagoryRepository;
 import com.yashsales.service.ProductCatagoryService;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class ProductCatagoryServiceImpl implements ProductCatagoryService {
 
-	@Autowired
-	private ProductCatagoryRepository prodCatagoryRepo;
+	private final ProductCatagoryRepository prodCatagoryRepo;
 	
 	@Override
 	public Map<String, Object> getProductCatagories() {

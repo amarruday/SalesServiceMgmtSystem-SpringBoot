@@ -6,8 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
 @Entity
 @Table(name = "action_types")
+@AllArgsConstructor
+@NoArgsConstructor
 public class ActionType {
 
 	@Id
@@ -15,29 +24,5 @@ public class ActionType {
 	private Long actionTypeId;
 	private String actionType;
 	private String status;
-
-	public Long getActionTypeId() {
-		return actionTypeId;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public void setActionTypeId(Long actionTypeId) {
-		this.actionTypeId = actionTypeId;
-	}
-
-	public String getActionType() {
-		return actionType;
-	}
-
-	public void setActionType(String actionType) {
-		this.actionType = actionType;
-	}
 
 }

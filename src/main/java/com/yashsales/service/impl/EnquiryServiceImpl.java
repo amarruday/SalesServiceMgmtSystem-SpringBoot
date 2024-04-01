@@ -15,7 +15,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -55,47 +54,25 @@ import com.yashsales.service.EnquiryService;
 import com.yashsales.service.UserService;
 import com.yashsales.utility.DateUtils;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class EnquiryServiceImpl implements EnquiryService {
 
-	@Autowired
-	private EnquiryRepository enqRepo;
-
-	@Autowired
-	private CustomerRepository custRepo;
-
-	@Autowired
-	private EnquiryActivityRepository enqActivityRepo;
-
-	@Autowired
-	private EnquirySourceRepository enqSourceRepo;
-
-	@Autowired
-	private EnquiryTypeRepository enqTypeRepo;
-
-	@Autowired
-	private ProductRepository productRepo;
-
-	@Autowired
-	private UserRepository userRepo;
-
-	@Autowired
-	private UserProductCatagoryLinkRepository userProductCatagoryLinkRepo;
-
-	@Autowired
-	private ProductTypeRepository productTypeRepo;
-
-	@Autowired
-	private DepartmentRepository deptRepo;
-
-	@Autowired
-	private UserService userService;
-	
-	@Autowired
-	private CustomerRepository customerRepo;
-	
-	@Autowired
-	private CustomerProudctLinkRepository custProductLinkRepo;
+	private final EnquiryRepository enqRepo;
+	private final CustomerRepository custRepo;
+	private final EnquiryActivityRepository enqActivityRepo;
+	private final EnquirySourceRepository enqSourceRepo;
+	private final EnquiryTypeRepository enqTypeRepo;
+	private final ProductRepository productRepo;
+	private final UserRepository userRepo;
+	private final UserProductCatagoryLinkRepository userProductCatagoryLinkRepo;
+	private final ProductTypeRepository productTypeRepo;
+	private final DepartmentRepository deptRepo;
+	private final UserService userService;
+	private final CustomerRepository customerRepo;
+	private final CustomerProudctLinkRepository custProductLinkRepo;
 	
 	@Override
 	@Transactional

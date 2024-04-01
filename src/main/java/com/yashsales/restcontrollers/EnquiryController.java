@@ -2,7 +2,6 @@ package com.yashsales.restcontrollers;
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,13 +20,15 @@ import com.yashsales.outputbeans.EnquiryBeans.ConvertToProspectBean;
 import com.yashsales.outputbeans.EnquiryBeans.WonLostEnquiryBean;
 import com.yashsales.service.EnquiryService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
-@RequestMapping("/enquiry")
+@RequestMapping("api/enquiry")
 @CrossOrigin("*")
 public class EnquiryController {
 
-	@Autowired
-	private EnquiryService enqService;
+	private final EnquiryService enqService;
 
 	@PostMapping("/")
 	public ResponseEntity<Map<String, Object>> addEnquiry(@RequestBody AddEnquiryBean enquiryBean) {
@@ -44,7 +45,7 @@ public class EnquiryController {
 		return new ResponseEntity<>(enqService.getAssignedToList(), HttpStatus.OK);
 	}
 
-	@GetMapping("/getenquirydetails/{enquiryId}")
+	@GetMapping("/{enquiryId}")
 	public ResponseEntity<Map<String, Object>> getEnquiryDetails(@PathVariable Long enquiryId) {
 		return new ResponseEntity<>(enqService.getEnquiryDetails(enquiryId), HttpStatus.OK);
 	}

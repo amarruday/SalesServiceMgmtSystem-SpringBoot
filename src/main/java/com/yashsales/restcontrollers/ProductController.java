@@ -2,7 +2,6 @@ package com.yashsales.restcontrollers;
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,13 +18,15 @@ import com.yashsales.outputbeans.ProductBean;
 import com.yashsales.outputbeans.SearchProductPagniationOutputbean;
 import com.yashsales.service.ProductService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
-@RequestMapping("/product")
+@RequestMapping("api/product")
 @CrossOrigin("*")
 public class ProductController {
 	
-	@Autowired
-	private ProductService productService;
+	private final ProductService productService;
 	
 	@PostMapping("/get")
 	public ResponseEntity<Map<String, Object>> getProducts(@RequestBody SearchProductPagniationOutputbean productBean) {		
@@ -42,7 +43,7 @@ public class ProductController {
 		return new ResponseEntity<>(productService.deleteProduct(productId), HttpStatus.OK);
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/")
 	public ResponseEntity<Map<String, Object>> addProduct(@RequestBody ProductBean productBean) {
 		return new ResponseEntity<>(productService.addProduct(productBean), HttpStatus.CREATED);
 	}
@@ -57,7 +58,6 @@ public class ProductController {
 	public ResponseEntity<Map<String, Object>> getProductTypeByAssignedProductCatagory(@PathVariable Long userId) {
 		return new ResponseEntity<>(productService.getProductTypesByAssignedProductCatagory(userId), HttpStatus.OK);
 	}
-	
 	
 	@GetMapping( "/getproducts/{brandId}/{productTypeId}")
 	public ResponseEntity<Map<String, Object>> getProductByBrandIdAndProductTypeId(@PathVariable Long brandId, @PathVariable Long productTypeId) {

@@ -13,6 +13,13 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class Auditable<U> {
@@ -32,37 +39,4 @@ public abstract class Auditable<U> {
 
 	@LastModifiedDate
 	protected Timestamp updatedDate;
-
-	public U getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(U createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public Timestamp getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Timestamp createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public U getUpdatedBy() {
-		return updatedBy;
-	}
-
-	public void setUpdatedBy(U updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public Timestamp getUpdatedDate() {
-		return updatedDate;
-	}
-
-	public void setUpdatedDate(Timestamp updatedDate) {
-		this.updatedDate = updatedDate;
-	}
-
 }

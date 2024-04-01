@@ -1,6 +1,5 @@
 package com.yashsales.service.impl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +10,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -36,26 +34,18 @@ import com.yashsales.repository.UserProductCatagoryLinkRepository;
 import com.yashsales.repository.UserRepository;
 import com.yashsales.service.ProductService;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-	@Autowired
-	private ProductTypeRepository productTypeRepo;
-
-	@Autowired
-	private ProductCatagoryRepository prodCatagoryRepo;
-
-	@Autowired
-	private ProductRepository productRepo;
-
-	@Autowired
-	private BrandsRepository brandRepo;
-
-	@Autowired
-	private UserRepository userRepo;
-
-	@Autowired
-	private UserProductCatagoryLinkRepository userProductCatagoryLinkRepo;
+	private final ProductTypeRepository productTypeRepo;
+	private final ProductCatagoryRepository prodCatagoryRepo;
+	private final ProductRepository productRepo;
+	private final BrandsRepository brandRepo;
+	private final UserRepository userRepo;
+	private final UserProductCatagoryLinkRepository userProductCatagoryLinkRepo;
 
 	@Override
 	public Map<String, Object> getProductTypes(Long productCatagoryId) {

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
@@ -13,11 +12,13 @@ import com.yashsales.entity.ActionType;
 import com.yashsales.repository.ActionTypeRepository;
 import com.yashsales.service.ActionTypeService;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class ActionTypeServiceImpl implements ActionTypeService {
 
-	@Autowired
-	private ActionTypeRepository actionTypeRepo;
+	private final ActionTypeRepository actionTypeRepo;
 
 	@Override
 	public Map<String, Object> getAllActiveActionTypes() {
@@ -39,8 +40,8 @@ public class ActionTypeServiceImpl implements ActionTypeService {
 		Map<String, Object> responseMap = new HashMap<String, Object>();
 		responseMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_FAILURE);
 
-		Optional<ActionType> queryResult = actionTypes.stream()
-				.filter(actionType -> actionType.getActionType().trim().equalsIgnoreCase(actionTypeBean.getActionType().trim()))
+		Optional<ActionType> queryResult = actionTypes.stream().filter(
+				actionType -> actionType.getActionType().trim().equalsIgnoreCase(actionTypeBean.getActionType().trim()))
 				.findFirst();
 
 		if (queryResult.isPresent()) {
@@ -60,14 +61,14 @@ public class ActionTypeServiceImpl implements ActionTypeService {
 	@Override
 	public Map<String, Object> updateActionType(ActionType actionTypeBean) {
 		ActionType theActionType = null;
-		
+
 		Map<String, Object> responseMap = new HashMap<String, Object>();
 		responseMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_FAILURE);
 		responseMap.put("message", "Failed to update action type!");
 
 		if (actionTypeBean.getActionTypeId() != null && actionTypeBean.getActionTypeId() > 0) {
 			theActionType = actionTypeRepo.findById(actionTypeBean.getActionTypeId()).get();
-			
+
 			if (theActionType != null && theActionType.getActionTypeId() > 0) {
 				theActionType.setStatus(actionTypeBean.getStatus());
 				actionTypeRepo.save(theActionType);

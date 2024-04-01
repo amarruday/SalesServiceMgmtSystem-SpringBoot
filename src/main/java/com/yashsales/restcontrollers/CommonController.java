@@ -3,7 +3,6 @@ package com.yashsales.restcontrollers;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,16 +23,17 @@ import com.yashsales.entity.EnquirySource;
 import com.yashsales.service.ActionTypeService;
 import com.yashsales.service.CommonService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
-@RequestMapping("/companyapi")
+@RequestMapping("api/company/")
 @CrossOrigin("*")
 public class CommonController {
-
-	@Autowired
-	private CommonService commonService;
-
-	@Autowired
-	private ActionTypeService actionTypeService;
+	
+	//Construction Injection - Lombok will create All args constructor
+	private final CommonService commonService;
+	private final ActionTypeService actionTypeService;
 
 	//ActionTypes
 	@GetMapping("actionType/{status}")
@@ -49,7 +49,7 @@ public class CommonController {
 		return new ResponseEntity<>(responseMap, HttpStatus.OK);
 	}
 
-	@GetMapping("actionType/get/{actionTypeId}")
+	@GetMapping("actionType/{actionTypeId}")
 	public ResponseEntity<Map<String, Object>> getActionTypeById(@PathVariable Long actionTypeId) {
 		return new ResponseEntity<>(actionTypeService.getActionTypeById(actionTypeId), HttpStatus.OK);
 	}
@@ -96,34 +96,34 @@ public class CommonController {
 	}
 	
 	//CommonReplies
-	@GetMapping("/commonReply/")
+	@GetMapping("commonReply")
 	public ResponseEntity<Map<String, Object>> getCommonReplies() {
 		return new ResponseEntity<>(commonService.getCommonReplies(), HttpStatus.OK);
 	}
 	
-	@PostMapping("/commonReply/")
+	@PostMapping("commonReply")
 	public ResponseEntity<Map<String, Object>> addCommonReply(@RequestBody CommonReply commonReply) {
 		return new ResponseEntity<>(commonService.addCommonReply(commonReply), HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/commonReply/{commonReplyId}")
+	@DeleteMapping("commonReply/{commonReplyId}")
 	public ResponseEntity<Map<String, Object>> deleteCommonReply(@PathVariable Long commonReplyId) {
 		return new ResponseEntity<>(commonService.deleteCommonReply(commonReplyId), HttpStatus.OK);
 	}
 	
 	//departments
-	@GetMapping("department/")
+	@GetMapping("department")
 	public ResponseEntity<List<Department>> getDepartments() {
 		return new ResponseEntity<>(commonService.getDepartments(), HttpStatus.OK);
 	}
 	
-	//Enquiry Sources
-	@GetMapping("enquirySources/")
+	//Enquiry Source
+	@GetMapping("enquirySources")
 	public ResponseEntity<Map<String, Object>> getEnquirySources() {
 		return new ResponseEntity<>(commonService.getEnquirySources(), HttpStatus.OK);
 	}
 
-	@PostMapping("enquirySources/")
+	@PostMapping("enquirySources")
 	public ResponseEntity<Map<String, Object>> addEnquirySource(@RequestBody EnquirySource enquirySource) {
 		return new ResponseEntity<>(commonService.addEnquirySource(enquirySource), HttpStatus.OK);
 	}
@@ -134,12 +134,12 @@ public class CommonController {
 	}
 	
 	//Enquiry Types
-	@GetMapping("enquiryType/")
+	@GetMapping("enquiryType")
 	public ResponseEntity<Map<String, Object>> getEnquiryTypes() {
 		return new ResponseEntity<>(commonService.getEnquiryTypes(), HttpStatus.OK);
 	}
 		
-	@GetMapping("/role/")
+	@GetMapping("role")
  	public Map<String, Object> getRoles() {
 		return commonService.getRoles();
 	}

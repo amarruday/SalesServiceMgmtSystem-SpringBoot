@@ -15,13 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.yashsales.entity.TicketType;
 import com.yashsales.service.impl.TicketTypeService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
-@RequestMapping("/tickettypes")
+@RequestMapping("api/tickettypes")
 @CrossOrigin("*")
 public class TicketTypeController {
 	
-	@Autowired
-	private TicketTypeService ticketTypeService;
+	private final TicketTypeService ticketTypeService;
 	
 	@GetMapping("/")
 	public Map<String, Object> getAllTicketTypes() {

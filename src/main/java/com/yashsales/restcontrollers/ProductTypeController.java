@@ -2,7 +2,6 @@ package com.yashsales.restcontrollers;
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,13 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.yashsales.outputbeans.ProductTypeOutputBean;
 import com.yashsales.service.ProductService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
-@RequestMapping("/producttype")
+@RequestMapping("api/producttype")
 @CrossOrigin("*")
 public class ProductTypeController {
 	
-	@Autowired
-	private ProductService productService;
+	private final ProductService productService;
 	
 	@GetMapping("/productCatagory/{productCatagoryId}")
 	public ResponseEntity<Map<String, Object>> getProductTypesByProductCatagoryId(@PathVariable Long productCatagoryId) {

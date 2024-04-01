@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,11 +16,13 @@ import com.yashsales.outputbeans.CustomerPagination;
 import com.yashsales.repository.CustomerRepository;
 import com.yashsales.service.CustomerService;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
 
-	@Autowired
-	private CustomerRepository custRepo;
+	private final CustomerRepository custRepo;
 
 	@Override
 	public Map<String, Object> addCustomer(CustomerOutputBean custBean) {

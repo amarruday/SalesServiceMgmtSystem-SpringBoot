@@ -6,7 +6,6 @@ import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
@@ -15,14 +14,14 @@ import com.yashsales.constants.ApplicationConstants;
 import com.yashsales.entity.User;
 import com.yashsales.repository.UserRepository;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class EmailServiceImpl  {
 
-	@Autowired
-    private JavaMailSender emailSender;
-
-	@Autowired
-	private UserRepository userRepo;
+	private final JavaMailSender emailSender;
+	private final UserRepository userRepo;
 	
 	
     public HashMap<String, String> sendSimpleMessage(String to) {

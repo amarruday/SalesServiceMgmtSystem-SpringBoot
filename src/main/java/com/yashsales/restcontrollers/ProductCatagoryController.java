@@ -2,7 +2,6 @@ package com.yashsales.restcontrollers;
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,13 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yashsales.service.ProductCatagoryService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
-@RequestMapping("/productcatagory")
+@RequestMapping("api/productcatagory")
 @CrossOrigin("*")
 public class ProductCatagoryController {
 	
-	@Autowired
-	private ProductCatagoryService prodCatagoryService;
+	
+	private final ProductCatagoryService prodCatagoryService;
 	
 	@GetMapping("/")
 	public ResponseEntity<Map<String, Object>> getProductCatagories() {

@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
@@ -21,14 +20,15 @@ import com.yashsales.service.DashboardService;
 import com.yashsales.service.UserService;
 import com.yashsales.utility.DateUtils;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class DashboardServiceImpl implements DashboardService {
 
-	@Autowired	private UserService userService;
-	
-	@Autowired private TicketRepository ticketRepo;
-	
-	@Autowired private EnquiryRepository enqRepo;
+	private final UserService userService;
+	private final TicketRepository ticketRepo;
+	private final EnquiryRepository enqRepo;
 	
 	@Override
 	public Map<String, Object> getDashboardDetails() {

@@ -20,15 +20,17 @@ import com.yashsales.outputbeans.BaseResponse;
 import com.yashsales.outputbeans.UserBean;
 import com.yashsales.service.UserService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
-@RequestMapping("/user")
+@RequestMapping("api/user/")
 @CrossOrigin("*")
 public class UserController {
 
-	@Autowired
-	private UserService userService;
+	private final UserService userService;
 
-	@PostMapping("/create")
+	@PostMapping("create")
 	public Map<String, Object> createUser(@RequestBody AddUserBean addUserBean) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		returnMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_FAILURE);
@@ -44,7 +46,7 @@ public class UserController {
 	}
 
 	// Get User by username
-	@GetMapping("/{username}")
+	@GetMapping("{username}")
 	public UserBean getUserByUsername(@PathVariable("username") String username) throws Exception {
 		return userService.getUserByUsername(username);
 	}

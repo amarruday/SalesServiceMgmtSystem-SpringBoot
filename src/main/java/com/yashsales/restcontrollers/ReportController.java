@@ -2,7 +2,6 @@ package com.yashsales.restcontrollers;
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,14 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.yashsales.outputbeans.DatewiseSearchBean;
 import com.yashsales.service.ReportService;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @RestController
-@RequestMapping("/reports")
+@RequestMapping("api/reports")
 @CrossOrigin("*")
 public class ReportController {
 		
-	@Autowired ReportService reportService;
-	
-	
+	private final ReportService reportService;
+		
 	//Ticket Reports
 	@PostMapping("/tickettypewiseticketreport")
 	public  Map<String, Object> getTicketTypeWiseTicketReport(@RequestBody DatewiseSearchBean datewiseSearchBean) {

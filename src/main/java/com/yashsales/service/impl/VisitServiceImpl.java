@@ -15,7 +15,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -33,19 +32,15 @@ import com.yashsales.service.UserService;
 import com.yashsales.service.VisitService;
 import com.yashsales.utility.DateUtils;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class VisitServiceImpl implements VisitService {
 
-	@Autowired
 	private VisitsRepository visitRepo;
-
-	@Autowired
 	private CustomerRepository custRepo;
-
-	@Autowired
 	private UserService userService;
-
-	@Autowired
 	private ActionTypeRepository actionTypeRepo;
 
 	@Override

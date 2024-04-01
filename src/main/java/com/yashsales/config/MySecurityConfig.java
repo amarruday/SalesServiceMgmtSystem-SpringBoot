@@ -1,6 +1,5 @@
 package com.yashsales.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -15,24 +14,24 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import lombok.AllArgsConstructor;
+
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	@Autowired
-	private UserDetailsService userDetailsService;
-
+	
+	private final UserDetailsService userDetailsService;
+	private final JwtTokenAuthenticationEntryPoint unauthorizedHandler;
+	private final JwtAuthenticationFilter jwtAuthenticationFilter;
+	
     @Bean
     BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
-	@Autowired
-	private JwtTokenAuthenticationEntryPoint unauthorizedHandler;
-	
-	@Autowired
-	private JwtAuthenticationFilter jwtAuthenticationFilter;
 	
 	@Override
 	@Bean
@@ -51,7 +50,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 			.csrf().disable()
 			.cors().disable()
 			.authorizeRequests()
-			.antMatchers("/auth/generate-token", "/user/**").permitAll()
+			.antMatchers("/auth/generate-token", "/api/user/**").permitAll()
 			//.antMatchers("/auth/generate-token", "/password/**", "/reports/**",  "/swagger-ui/**", "/v2/api-docs/**", "swagger-ui/**").permitAll()
 			//.antMatchers("/**").permitAll()
 			.antMatchers(HttpMethod.OPTIONS).permitAll()
