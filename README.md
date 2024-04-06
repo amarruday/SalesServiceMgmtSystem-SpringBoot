@@ -43,7 +43,7 @@ To get a local copy up and running, follow these simple steps:
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 ## Contact
-Amar Patil - amarruday@gmail.com
+Amar Patil - amarruday@gmail.com / amarpatil110@outlook.com
 
 ### Attension 
 Some of the Java8 Features used in application: (Lambda Exp, Java Streams, Method Refs etc)
