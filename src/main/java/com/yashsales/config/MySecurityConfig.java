@@ -72,7 +72,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				//.antMatchers("/auth/generate-token", "/user/**", "/reports/**").permitAll()
 				.antMatchers("/auth/generate-token", "/password/**").permitAll()
-				.antMatchers("/api/visit").hasAnyAuthority("ADMIN", "SALES_MANAGER", "SALES_ENGINEER", "SERVICE_MANAGER", "SERVICE_ENGINEER")
+				.antMatchers("/api/visit").hasAnyAuthority("ADMIN", "SALES_MANAGER", "SALES_ENGINEER")
 				.antMatchers("/api/enquiry").hasAnyAuthority("SALES_MANAGER", "SALES_ENGINEER")
 				.antMatchers("/api/ticket").hasAnyAuthority("SERVICE_MANAGER", "SERVICE_ENGINEER")
 				.antMatchers("/api/reports").hasAnyAuthority("ADMIN", "SALES_MANAGER", "SALES_ENGINEER", "SERVICE_MANAGER", "SERVICE_ENGINEER")
