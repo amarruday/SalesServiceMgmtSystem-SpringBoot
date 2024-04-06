@@ -1,5 +1,7 @@
 package com.yashsales.restcontrollers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yashsales.constants.ApplicationConstants;
 import com.yashsales.constants.JwtUtils;
-import com.yashsales.dto.JwtRequest;
-import com.yashsales.dto.JwtResponse;
+import com.yashsales.dto.commons.JwtRequest;
+import com.yashsales.dto.commons.JwtResponse;
 import com.yashsales.service.impl.UserDetailsServiceImpl;
 
 @RestController
@@ -34,10 +36,13 @@ public class AuthenticateController {
 	@Autowired
 	private JwtUtils jwtUtils;
 
+	Logger logger = LoggerFactory.getLogger(AuthenticateController.class);
+
 	// generate token API
 	@PostMapping("/generate-token")
 	public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
 		JwtResponse resp = new JwtResponse();
+		System.out.println("Input: " + jwtRequest);
 		resp = new JwtResponse();
 		
 		try {

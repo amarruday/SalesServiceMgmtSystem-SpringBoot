@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yashsales.dto.AddEnquiryBean;
-import com.yashsales.dto.EnquirySearchBean;
+import com.yashsales.dto.Enquiry.AddEnquiryBean;
+import com.yashsales.dto.Enquiry.EnquirySearchBean;
 import com.yashsales.dto.Enquiry.AssignEnquiryBean;
 import com.yashsales.dto.Enquiry.CancelEnquiryBean;
 import com.yashsales.dto.Enquiry.ConvertToProspectBean;

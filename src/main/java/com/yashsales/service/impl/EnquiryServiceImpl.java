@@ -22,8 +22,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
-import com.yashsales.dto.AddEnquiryBean;
-import com.yashsales.dto.EnquirySearchBean;
+import com.yashsales.dto.Enquiry.AddEnquiryBean;
+import com.yashsales.dto.Enquiry.EnquirySearchBean;
 import com.yashsales.dto.Enquiry.AssignEnquiryBean;
 import com.yashsales.dto.Enquiry.CancelEnquiryBean;
 import com.yashsales.dto.Enquiry.ConvertToProspectBean;

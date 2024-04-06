@@ -1,6 +1,7 @@
 package com.yashsales.service.impl;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
@@ -66,7 +67,7 @@ public class EmailServiceImpl  {
     
     	    	sb.append("Yash Electricals\n \n");
     	    	sb.append("Your Requested Details - \n");
-    	    	sb.append("Username: " + user.getUsername() + "\n");
+    	    	sb.append("Username: " + user.getFullName() + "\n");
     	    	sb.append("Password: 0000 " + "\n");
     	    	sb.append("\n \n");
     	    	sb.append("Regards, Yash Electricals");

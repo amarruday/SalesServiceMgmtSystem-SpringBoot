@@ -1,4 +1,4 @@
-package com.yashsales.dto;
+package com.yashsales.dto.Ticket;
 
 import java.util.Date;
 import lombok.AllArgsConstructor;

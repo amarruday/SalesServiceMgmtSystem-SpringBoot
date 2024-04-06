@@ -1,4 +1,4 @@
-package com.yashsales.dto;
+package com.yashsales.dto.commons;
 
 import java.sql.Timestamp;
 import java.util.Set;

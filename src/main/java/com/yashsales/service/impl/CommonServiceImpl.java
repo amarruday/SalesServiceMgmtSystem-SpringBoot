@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
-import com.yashsales.dto.RoleWiseManagersListBean;
+import com.yashsales.dto.commons.RoleWiseManagersListBean;
 import com.yashsales.entity.Brand;
 import com.yashsales.entity.CommonReply;
 import com.yashsales.entity.Department;
@@ -36,27 +36,13 @@ import lombok.AllArgsConstructor;
 public class CommonServiceImpl implements CommonService {
 
 	private final RoleRepository roleRepo;
-
-	@Autowired
-	private ProductCatagoryRepository prodCatagoryRepo;
-
-	@Autowired
-	private UserProductCatagoryLinkRepository userProductCatagoryLinkRepo;
-
-	@Autowired
-	private BrandsRepository brandRepo;
-
-	@Autowired
-	private CommonReplyRepository commonReplyRepo;
-
-	@Autowired
-	private EnquiryTypeRepository enqTypeRepo;
-
-	@Autowired
-	private EnquirySourceRepository enqSourceRepo;
-
-	@Autowired
-	private DepartmentRepository deptRepo;
+	private final ProductCatagoryRepository prodCatagoryRepo;
+	private final UserProductCatagoryLinkRepository userProductCatagoryLinkRepo;
+	private final BrandsRepository brandRepo;
+	private final CommonReplyRepository commonReplyRepo;
+	private final EnquiryTypeRepository enqTypeRepo;
+	private final EnquirySourceRepository enqSourceRepo;
+	private final DepartmentRepository deptRepo;
 
 	// brand
 	@Override

@@ -1,6 +1,5 @@
-package com.yashsales.dto;
+package com.yashsales.dto.actiontype;
 
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DatewiseSearchBean {
-	private Date startDate;
-	private Date endDate;
+public class ActionTypeBean {
+    private Long actionTypeId;
+    private String actionType;
+    private String status;
 }

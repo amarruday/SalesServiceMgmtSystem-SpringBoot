@@ -1,4 +1,4 @@
-package com.yashsales.dto;
+package com.yashsales.dto.commons;
 
 import com.yashsales.constants.ApplicationConstants;
 

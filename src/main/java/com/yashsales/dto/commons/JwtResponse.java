@@ -1,4 +1,4 @@
-package com.yashsales.dto;
+package com.yashsales.dto.commons;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -17,9 +17,9 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
-import com.yashsales.dto.ProductBean;
-import com.yashsales.dto.ProductTypeOutputBean;
-import com.yashsales.dto.SearchProductPagniationOutputbean;
+import com.yashsales.dto.product.ProductBean;
+import com.yashsales.dto.product.ProductTypeOutputBean;
+import com.yashsales.dto.product.SearchProductPagniationOutputbean;
 import com.yashsales.entity.Brand;
 import com.yashsales.entity.Product;
 import com.yashsales.entity.ProductCatagory;

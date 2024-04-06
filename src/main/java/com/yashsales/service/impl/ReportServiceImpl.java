@@ -19,7 +19,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
-import com.yashsales.dto.DatewiseSearchBean;
+import com.yashsales.dto.commons.DatewiseSearchBean;
 import com.yashsales.entity.Enquiry;
 import com.yashsales.entity.EnquirySource;
 import com.yashsales.entity.Product;

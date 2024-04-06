@@ -19,8 +19,7 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/password")
 @CrossOrigin("*")
 public class PasswordController {
-	
-	
+
 	private final EmailServiceImpl emailService;
 	
 	@GetMapping("forgotpassword/{email}")

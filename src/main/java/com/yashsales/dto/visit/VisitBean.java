@@ -1,4 +1,4 @@
-package com.yashsales.dto;
+package com.yashsales.dto.visit;
 
 import java.sql.Timestamp;
 
@@ -19,20 +19,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonInclude(Include.NON_NULL)
 public class VisitBean {
-
 	private Long visitId;
 	private Customer customer;
-	@NonNull
 	private Long customerId;
-
 	private ActionType actionType;
-	@NonNull
 	private Long actionTypeId;
 	private String actionTypeName;
-
 	private String description;
-
-	@NonNull
 	private Long userId;
 	private String addedByName;
 	private Timestamp addedDate;

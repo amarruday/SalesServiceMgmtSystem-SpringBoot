@@ -22,9 +22,9 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.yashsales.constants.ApplicationConstants;
-import com.yashsales.dto.AddTicketBean;
-import com.yashsales.dto.TicketResponseBean;
-import com.yashsales.dto.TicketSearchBean;
+import com.yashsales.dto.Ticket.AddTicketBean;
+import com.yashsales.dto.Ticket.TicketResponseBean;
+import com.yashsales.dto.Ticket.TicketSearchBean;
 import com.yashsales.entity.Customer;
 import com.yashsales.entity.CustomerProductLink;
 import com.yashsales.entity.Product;

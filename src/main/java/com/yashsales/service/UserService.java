@@ -2,8 +2,8 @@ package com.yashsales.service;
 
 import java.util.Map;
 
-import com.yashsales.dto.AddUserBean;
-import com.yashsales.dto.UserBean;
+import com.yashsales.dto.commons.AddUserBean;
+import com.yashsales.dto.commons.UserBean;
 import com.yashsales.entity.User;
 
 public interface UserService {

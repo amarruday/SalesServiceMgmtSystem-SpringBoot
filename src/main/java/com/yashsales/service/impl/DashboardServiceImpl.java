@@ -75,11 +75,11 @@ public class DashboardServiceImpl implements DashboardService {
 				//get Last three Pending Tickets
 				List<Ticket> recentTicketList = allTickets.stream()
 				.filter(e -> !e.getStatus().equals(ApplicationConstants.TicketConstants.TICKET_STATUS_COMPLETED) && !e.getStatus().equals(ApplicationConstants.TicketConstants.TICKET_STATUS_CANCELLED))
-				.sorted(Comparator.comparing(Ticket :: getRecentActivityDate).reversed())
+				.sorted(Comparator.comparing(Ticket :: getRecentActivityDate).reversed()).limit(3)
 				.collect(Collectors.toList());
 				
-				returnMap.put("recentThreeTickets", recentTicketList.subList(0, 3));
-				
+				//returnMap.put("recentThreeTickets", recentTicketList.subList(0, 3));
+				returnMap.put("recentThreeTickets", recentTicketList);
 				List<Enquiry> enquiryList = null;
 				enquiryList = enqRepo.findAll();
 				
@@ -92,10 +92,11 @@ public class DashboardServiceImpl implements DashboardService {
 				//get Last three Pending Enquiries
 				List<Enquiry> recentEnquiryList = enquiryList.stream()
 				.filter(e -> !e.getStatus().equals(ApplicationConstants.EnquiryConstants.ENQUIRY_STATUS_WON) && !e.getStatus().equals(ApplicationConstants.EnquiryConstants.ENQUIRY_STATUS_CANCELLED) && !e.getStatus().equals(ApplicationConstants.EnquiryConstants.ENQUIRY_STATUS_LOST))
-				.sorted(Comparator.comparing(Enquiry :: getRecentActivityDate).reversed())
+				.sorted(Comparator.comparing(Enquiry :: getRecentActivityDate).reversed()).limit(3)
 				.collect(Collectors.toList());
 				
-				returnMap.put("recentThreeEnquiries", recentEnquiryList.subList(0, 3));
+				//returnMap.put("recentThreeEnquiries", recentEnquiryList.subList(0, 3));
+				returnMap.put("recentThreeEnquiries", recentEnquiryList);
 				returnMap.put("responseStatus", ApplicationConstants.ResponseConstants.RESPONSE_SUCCESS);
 			}
 			

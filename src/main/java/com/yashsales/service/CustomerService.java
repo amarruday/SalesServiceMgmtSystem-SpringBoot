@@ -4,8 +4,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.yashsales.dto.CustomerOutputBean;
-import com.yashsales.dto.CustomerPagination;
+import com.yashsales.dto.customer.CustomerOutputBean;
+import com.yashsales.dto.customer.CustomerPagination;
 
 @Service
 public interface CustomerService {

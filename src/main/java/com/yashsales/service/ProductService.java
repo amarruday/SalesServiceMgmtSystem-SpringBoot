@@ -4,9 +4,9 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.yashsales.dto.ProductBean;
-import com.yashsales.dto.ProductTypeOutputBean;
-import com.yashsales.dto.SearchProductPagniationOutputbean;
+import com.yashsales.dto.product.ProductBean;
+import com.yashsales.dto.product.ProductTypeOutputBean;
+import com.yashsales.dto.product.SearchProductPagniationOutputbean;
 
 @Service
 public interface ProductService {

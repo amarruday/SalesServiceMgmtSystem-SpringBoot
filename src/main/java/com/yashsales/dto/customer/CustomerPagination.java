@@ -1,4 +1,4 @@
-package com.yashsales.dto;
+package com.yashsales.dto.customer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.yashsales.dto;
+package com.yashsales.dto.commons;
 
 public class VerifyOtpAndPasswordBean {
 	public String otp;

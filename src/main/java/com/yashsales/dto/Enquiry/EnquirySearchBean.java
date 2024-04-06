@@ -1,4 +1,4 @@
-package com.yashsales.dto;
+package com.yashsales.dto.Enquiry;
 
 import java.util.Date;
 import lombok.AllArgsConstructor;

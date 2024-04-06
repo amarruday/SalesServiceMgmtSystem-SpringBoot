@@ -4,8 +4,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.yashsales.dto.AddTicketBean;
-import com.yashsales.dto.TicketSearchBean;
+import com.yashsales.dto.Ticket.AddTicketBean;
+import com.yashsales.dto.Ticket.TicketSearchBean;
 
 @Service
 public interface TicketService {

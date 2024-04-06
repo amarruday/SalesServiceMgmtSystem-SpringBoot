@@ -2,7 +2,6 @@ package com.yashsales.restcontrollers;
 
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yashsales.dto.AddTicketBean;
-import com.yashsales.dto.TicketSearchBean;
+import com.yashsales.dto.Ticket.AddTicketBean;
+import com.yashsales.dto.Ticket.TicketSearchBean;
 import com.yashsales.service.TicketService;
 
 import lombok.AllArgsConstructor;

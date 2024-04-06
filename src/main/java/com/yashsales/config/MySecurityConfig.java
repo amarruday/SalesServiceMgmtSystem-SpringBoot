@@ -43,7 +43,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(this.userDetailsService).passwordEncoder(passwordEncoder());
 	}
-	
+
+	/*
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
@@ -60,6 +61,28 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 					
+		http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+	}*/
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+				.csrf().disable()
+				.cors().disable()
+				.authorizeRequests()
+				//.antMatchers("/auth/generate-token", "/user/**", "/reports/**").permitAll()
+				.antMatchers("/auth/generate-token", "/password/**").permitAll()
+				.antMatchers("/api/visit").hasAnyAuthority("ADMIN", "SALES_MANAGER", "SALES_ENGINEER", "SERVICE_MANAGER", "SERVICE_ENGINEER")
+				.antMatchers("/api/enquiry").hasAnyAuthority("SALES_MANAGER", "SALES_ENGINEER")
+				.antMatchers("/api/ticket").hasAnyAuthority("SERVICE_MANAGER", "SERVICE_ENGINEER")
+				.antMatchers("/api/reports").hasAnyAuthority("ADMIN", "SALES_MANAGER", "SALES_ENGINEER", "SERVICE_MANAGER", "SERVICE_ENGINEER")
+				.antMatchers(HttpMethod.OPTIONS).permitAll()
+				.anyRequest().authenticated()
+				.and()
+				.exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
+				.and()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
 		http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 	

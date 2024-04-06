@@ -1,4 +1,4 @@
-package com.yashsales.dto;
+package com.yashsales.dto.product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,10 +8,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductTypeOutputBean {
+public class ProductBean {
+	private Long productId;
 	private Long productTypeId;
-	private Long productCatagoryId;
+	private String productTypeName;
+
+	private Long brandId;
+	private String brandName;
+
 	private String productName;
+	private Long warrantyInYears;
 	private String ticketPrefix;
 	private boolean status;
 }

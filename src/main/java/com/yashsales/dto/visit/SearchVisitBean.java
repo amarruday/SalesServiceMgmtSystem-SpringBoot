@@ -1,4 +1,4 @@
-package com.yashsales.dto;
+package com.yashsales.dto.visit;
 
 import java.util.Date;
 import lombok.AllArgsConstructor;
@@ -10,14 +10,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TicketSearchBean {
-	private int pageNumber;
-	private int pageSize;
+public class SearchVisitBean {
 	private Date startDate;
 	private Date endDate;
-	private Long ticketTypeId;
-	private String priority;
-	private String status;
+	private Long actionTypeId;
+	private Long userId;
 	private Long customerId;
-	private Long addedBy;
 }
