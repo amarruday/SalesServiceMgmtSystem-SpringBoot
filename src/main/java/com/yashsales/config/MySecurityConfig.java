@@ -43,27 +43,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(this.userDetailsService).passwordEncoder(passwordEncoder());
 	}
-
-	/*
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-			.csrf().disable()
-			.cors().disable()
-			.authorizeRequests()
-			.antMatchers("/auth/generate-token", "/api/user/**").permitAll()
-			//.antMatchers("/auth/generate-token", "/password/**", "/reports/**",  "/swagger-ui/**", "/v2/api-docs/**", "swagger-ui/**").permitAll()
-			//.antMatchers("/**").permitAll()
-			.antMatchers(HttpMethod.OPTIONS).permitAll()
-			.anyRequest().authenticated()
-			.and()
-			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
-			.and()
-			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-					
-		http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-	}*/
-
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http

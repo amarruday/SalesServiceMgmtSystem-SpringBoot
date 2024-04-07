@@ -3,6 +3,7 @@ package com.yashsales.restcontrollers;
 import java.util.List;
 import java.util.Map;
 
+import com.yashsales.dto.commons.BrandDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -74,38 +75,7 @@ public class CommonController {
 	public ResponseEntity<Map<String, Object>> deleteActionType(@PathVariable Long actionTypeId) {
 		return new ResponseEntity<>(actionTypeService.deleteActionType(actionTypeId), HttpStatus.OK);
 	}
-	
-	//Brands
-	@PreAuthorize("hasAnyAuthority('ADMIN', 'SALES_MANAGER', 'SALES_ENGINEER', 'SERVICE_MANAGER', 'SERVICE_ENGINEER')")
-	@GetMapping("brand/")
-	public ResponseEntity<Map<String, Object>> getBrands() {
-		return new ResponseEntity<>(commonService.getBrands(), HttpStatus.OK);
-	}
 
-	@PreAuthorize("hasAnyAuthority('ADMIN', 'SALES_MANAGER', 'SALES_ENGINEER', 'SERVICE_MANAGER', 'SERVICE_ENGINEER')")
-	@GetMapping("brand/Active")
-	public ResponseEntity<Map<String, Object>> getActiveBrands() {
-		return new ResponseEntity<>(commonService.getActiveBrands(), HttpStatus.OK);
-	}
-
-	@PreAuthorize("hasAnyAuthority('ADMIN', 'SALES_MANAGER', 'SALES_ENGINEER', 'SERVICE_MANAGER', 'SERVICE_ENGINEER')")
-	@GetMapping("brand/{brandId}")
-	public ResponseEntity<Map<String, Object>> getBrandById(@PathVariable Long brandId) {
-		return new ResponseEntity<>(commonService.getBrand(brandId), HttpStatus.OK);
-	}
-
-	@PreAuthorize("hasAuthority('ADMIN')")
-	@PostMapping("brand/")
-	public ResponseEntity<Map<String, Object>> addBrand(@RequestBody Brand brand) {
-		return new ResponseEntity<>(commonService.addBrand(brand), HttpStatus.CREATED);
-	}
-
-	@PreAuthorize("hasAuthority('ADMIN')")
-	@PutMapping("brand/")
-	public ResponseEntity<Map<String, Object>> updateBrand(@RequestBody Brand brand) {
-		return new ResponseEntity<>(commonService.editBrand(brand), HttpStatus.OK);
-	}
-	
 	//CommonReplies
 	@PreAuthorize("hasAnyAuthority('ADMIN', 'SALES_MANAGER', 'SALES_ENGINEER', 'SERVICE_MANAGER', 'SERVICE_ENGINEER')")
 	@GetMapping("commonReply")
