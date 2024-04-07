@@ -6,7 +6,7 @@
 The Sales and Service Management System is a comprehensive tool designed to assist sales personnel in managing their daily activities, inquiries, client visits, and service tickets on a weekly and monthly basis. This system is an integral part of Customer Relationship Management (CRM) marketing and management, aiming to automate various sales management functions to enhance efficiency and productivity.
 
 ## Technologies Used
-- **Backend**: Developed using **Spring Boot**, which simplifies the bootstrapping and development of new Spring applications. Integrated with **Spring Data JPA** for robust database interaction and **RestFul Web Services** for seamless communication between client and server.
+- **Backend**: Developed using **Spring Boot**, which simplifies the bootstrapping and development of new Spring applications. Integrated with **Spring Data JPA** for robust database interaction and **RestFul Web Services** for seamless communication between client and server. **Spring Security** for Authentication (JWT) and Authorization.
 - **Database**: Utilizes **MySQL**, a reliable and widely-used database management system, for storing and managing data efficiently.
 - **Frontend**: Implemented with **Angular**, a platform for building mobile and desktop web applications, known for its speed and performance.
 
@@ -43,7 +43,7 @@ To get a local copy up and running, follow these simple steps:
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 ## Contact
-Amar Patil - amarruday@gmail.com
+Amar Patil - amarruday@gmail.com / amarpatil110@outlook.com
 
 ### Attension 
 Some of the Java8 Features used in application: (Lambda Exp, Java Streams, Method Refs etc)
