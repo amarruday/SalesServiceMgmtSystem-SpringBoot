@@ -21,18 +21,26 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
-	
-	
+
 	private final UserDetailsService userDetailsService;
 	private final JwtTokenAuthenticationEntryPoint unauthorizedHandler;
 	private final JwtAuthenticationFilter jwtAuthenticationFilter;
-	
+
+	public static final String[] PUBLIC_URLS = {
+			"/auth/generate-token",
+			"/password/**",
+			"/v3/api-docs",
+			"/v2/api-docs",
+			"/swagger-resources/**",
+			"/swagger-ui/**",
+			"/webjars/**",
+	};
+
     @Bean
     BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-	
+
 	@Override
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -50,7 +58,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 				.cors().disable()
 				.authorizeRequests()
 				//.antMatchers("/auth/generate-token", "/user/**", "/reports/**").permitAll()
-				.antMatchers("/auth/generate-token", "/password/**").permitAll()
+				.antMatchers(PUBLIC_URLS).permitAll()
 				.antMatchers("/api/visit").hasAnyAuthority("ADMIN", "SALES_MANAGER", "SALES_ENGINEER")
 				.antMatchers("/api/enquiry").hasAnyAuthority("SALES_MANAGER", "SALES_ENGINEER")
 				.antMatchers("/api/ticket").hasAnyAuthority("SERVICE_MANAGER", "SERVICE_ENGINEER")

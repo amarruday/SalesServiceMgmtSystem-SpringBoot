@@ -2,6 +2,11 @@ package com.ssms.restcontrollers;
 
 import com.ssms.dto.commons.BrandDto;
 import com.ssms.service.BrandService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +19,13 @@ import java.util.Map;
 @RestController
 @RequestMapping("api/brand/")
 @CrossOrigin("*")
+@Tag(name="brand-api", description ="Brand Controller")
 public class BrandController {
 
     private final BrandService brandService;
 
+    @Operation(summary = "Get All Brands", description = "Returns a brands")
+    @ApiResponse(responseCode = "200", description = "Successfully retrieved")
     @PreAuthorize("hasAnyAuthority('ADMIN', 'SALES_MANAGER', 'SALES_ENGINEER', 'SERVICE_MANAGER', 'SERVICE_ENGINEER')")
     @GetMapping("brand/")
     public ResponseEntity<Map<String, Object>> getBrands() {
