@@ -47,9 +47,9 @@ Amar Patil - amarruday@gmail.com / amarpatil110@outlook.com
 
 ### Attension 
 Some of the Java8 Features used in application: (Lambda Exp, Java Streams, Method Refs etc)
-1. [`DashboardServiceImpl.java`](https://github.com/amarruday/YashSales/blob/main/src/main/java/com/yashsales/service/impl/DashboardServiceImpl.java)
-2. [`TicketServiceImpl.java`](https://github.com/amarruday/YashSales/blob/main/src/main/java/com/yashsales/service/impl/TicketServiceImpl.java)
-3. [`VisitServiceImpl.java`](https://github.com/amarruday/YashSales/blob/main/src/main/java/com/yashsales/service/impl/VisitServiceImpl.java)
+1. [`DashboardServiceImpl.java`](https://github.com/amarruday/YashSales/blob/main/src/main/java/com/ssms/service/impl/DashboardServiceImpl.java)
+2. [`TicketServiceImpl.java`](https://github.com/amarruday/YashSales/blob/main/src/main/java/com/ssms/service/impl/TicketServiceImpl.java)
+3. [`VisitServiceImpl.java`](https://github.com/amarruday/YashSales/blob/main/src/main/java/com/ssms/service/impl/VisitServiceImpl.java)
    
 ### Attachments
 1) End to End Project Documentation.
